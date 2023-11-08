@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YouTube Downloader</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>YouTube Downloader</h1>
+    <div id="error-message" class="error-message"></div>
+    <form method="POST" action="/download" onsubmit="return validateForm()">
+        <label for="link">Enter YouTube Link:</label>
+        <input type="text" name="link" required>
+        <br>
+        <label for="download_type">Select Download Type:</label>
+        <select name="download_type" required>
+            <option value="video">Video</option>
+            <option value="playlist">Playlist</option>
+        </select>
+        <br>
+        <input type="submit" value="Download">
+    </form>
+    <div id="progress-bar" class="progress-bar">
+        <div id="progress-bar-inner" class="progress-bar-inner"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@12"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
